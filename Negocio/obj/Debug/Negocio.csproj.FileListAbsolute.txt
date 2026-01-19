@@ -1,0 +1,12 @@
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\Negocio.dll
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\Datos.dll
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\Datos.pdb
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\Datos.dll.config
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\obj\Debug\Negocio.csproj.Up2Date
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\obj\Debug\Negocio.dll
+C:\Users\Koky\source\repos\TrabajoFinal\Negocio\obj\Debug\Negocio.pdb

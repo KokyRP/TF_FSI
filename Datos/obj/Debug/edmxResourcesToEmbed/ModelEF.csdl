@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelEF" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="ID_Cliente" />
+    </Key>
+    <Property Name="ID_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DNI" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Vehiculos__ID_Cl__398D8EEE" FromRole="Clientes" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Mantenimiento_Repuesto">
+    <Key>
+      <PropertyRef Name="ID_Mantenimiento" />
+      <PropertyRef Name="ID_Repuesto" />
+    </Key>
+    <Property Name="ID_Mantenimiento" Type="Int32" Nullable="false" />
+    <Property Name="ID_Repuesto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad_Usada" Type="Int32" />
+    <NavigationProperty Name="Mantenimientos" Relationship="Self.FK__Mantenimi__ID_Ma__46E78A0C" FromRole="Mantenimiento_Repuesto" ToRole="Mantenimientos" />
+    <NavigationProperty Name="Repuestos" Relationship="Self.FK__Mantenimi__ID_Re__47DBAE45" FromRole="Mantenimiento_Repuesto" ToRole="Repuestos" />
+  </EntityType>
+  <EntityType Name="Mantenimientos">
+    <Key>
+      <PropertyRef Name="ID_Mantenimiento" />
+    </Key>
+    <Property Name="ID_Mantenimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Mecanico" Type="Int32" />
+    <Property Name="ID_Vehiculo" Type="Int32" />
+    <Property Name="ID_Servicio" Type="Int32" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Mantenimiento_Repuesto" Relationship="Self.FK__Mantenimi__ID_Ma__46E78A0C" FromRole="Mantenimientos" ToRole="Mantenimiento_Repuesto" />
+    <NavigationProperty Name="Mecanicos" Relationship="Self.FK__Mantenimi__ID_Me__403A8C7D" FromRole="Mantenimientos" ToRole="Mecanicos" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK__Mantenimi__ID_Se__4222D4EF" FromRole="Mantenimientos" ToRole="Servicios" />
+    <NavigationProperty Name="Vehiculos" Relationship="Self.FK__Mantenimi__ID_Ve__412EB0B6" FromRole="Mantenimientos" ToRole="Vehiculos" />
+  </EntityType>
+  <EntityType Name="Mecanicos">
+    <Key>
+      <PropertyRef Name="ID_Mecanico" />
+    </Key>
+    <Property Name="ID_Mecanico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DNI" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Mantenimientos" Relationship="Self.FK__Mantenimi__ID_Me__403A8C7D" FromRole="Mecanicos" ToRole="Mantenimientos" />
+  </EntityType>
+  <EntityType Name="Repuestos">
+    <Key>
+      <PropertyRef Name="ID_Repuesto" />
+    </Key>
+    <Property Name="ID_Repuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Cantidad_Inventario" Type="Int32" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Mantenimiento_Repuesto" Relationship="Self.FK__Mantenimi__ID_Re__47DBAE45" FromRole="Repuestos" ToRole="Mantenimiento_Repuesto" />
+  </EntityType>
+  <EntityType Name="Servicios">
+    <Key>
+      <PropertyRef Name="ID_Servicio" />
+    </Key>
+    <Property Name="ID_Servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Costo" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Mantenimientos" Relationship="Self.FK__Mantenimi__ID_Se__4222D4EF" FromRole="Servicios" ToRole="Mantenimientos" />
+  </EntityType>
+  <EntityType Name="Vehiculos">
+    <Key>
+      <PropertyRef Name="ID_Vehiculo" />
+    </Key>
+    <Property Name="ID_Vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Año" Type="Int32" />
+    <Property Name="ID_Cliente" Type="Int32" />
+    <Property Name="Eliminado" Type="Boolean" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Vehiculos__ID_Cl__398D8EEE" FromRole="Vehiculos" ToRole="Clientes" />
+    <NavigationProperty Name="Mantenimientos" Relationship="Self.FK__Mantenimi__ID_Ve__412EB0B6" FromRole="Vehiculos" ToRole="Mantenimientos" />
+  </EntityType>
+  <Association Name="FK__Vehiculos__ID_Cl__398D8EEE">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="Vehiculos">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mantenimi__ID_Ma__46E78A0C">
+    <End Role="Mantenimientos" Type="Self.Mantenimientos" Multiplicity="1" />
+    <End Role="Mantenimiento_Repuesto" Type="Self.Mantenimiento_Repuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mantenimientos">
+        <PropertyRef Name="ID_Mantenimiento" />
+      </Principal>
+      <Dependent Role="Mantenimiento_Repuesto">
+        <PropertyRef Name="ID_Mantenimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mantenimi__ID_Re__47DBAE45">
+    <End Role="Repuestos" Type="Self.Repuestos" Multiplicity="1" />
+    <End Role="Mantenimiento_Repuesto" Type="Self.Mantenimiento_Repuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repuestos">
+        <PropertyRef Name="ID_Repuesto" />
+      </Principal>
+      <Dependent Role="Mantenimiento_Repuesto">
+        <PropertyRef Name="ID_Repuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mantenimi__ID_Me__403A8C7D">
+    <End Role="Mecanicos" Type="Self.Mecanicos" Multiplicity="0..1" />
+    <End Role="Mantenimientos" Type="Self.Mantenimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mecanicos">
+        <PropertyRef Name="ID_Mecanico" />
+      </Principal>
+      <Dependent Role="Mantenimientos">
+        <PropertyRef Name="ID_Mecanico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mantenimi__ID_Se__4222D4EF">
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+    <End Role="Mantenimientos" Type="Self.Mantenimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios">
+        <PropertyRef Name="ID_Servicio" />
+      </Principal>
+      <Dependent Role="Mantenimientos">
+        <PropertyRef Name="ID_Servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mantenimi__ID_Ve__412EB0B6">
+    <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="0..1" />
+    <End Role="Mantenimientos" Type="Self.Mantenimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculos">
+        <PropertyRef Name="ID_Vehiculo" />
+      </Principal>
+      <Dependent Role="Mantenimientos">
+        <PropertyRef Name="ID_Vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TallerMecanicoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Mantenimiento_Repuesto" EntityType="Self.Mantenimiento_Repuesto" />
+    <EntitySet Name="Mantenimientos" EntityType="Self.Mantenimientos" />
+    <EntitySet Name="Mecanicos" EntityType="Self.Mecanicos" />
+    <EntitySet Name="Repuestos" EntityType="Self.Repuestos" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+    <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" />
+    <AssociationSet Name="FK__Vehiculos__ID_Cl__398D8EEE" Association="Self.FK__Vehiculos__ID_Cl__398D8EEE">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mantenimi__ID_Ma__46E78A0C" Association="Self.FK__Mantenimi__ID_Ma__46E78A0C">
+      <End Role="Mantenimientos" EntitySet="Mantenimientos" />
+      <End Role="Mantenimiento_Repuesto" EntitySet="Mantenimiento_Repuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mantenimi__ID_Re__47DBAE45" Association="Self.FK__Mantenimi__ID_Re__47DBAE45">
+      <End Role="Repuestos" EntitySet="Repuestos" />
+      <End Role="Mantenimiento_Repuesto" EntitySet="Mantenimiento_Repuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mantenimi__ID_Me__403A8C7D" Association="Self.FK__Mantenimi__ID_Me__403A8C7D">
+      <End Role="Mecanicos" EntitySet="Mecanicos" />
+      <End Role="Mantenimientos" EntitySet="Mantenimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mantenimi__ID_Se__4222D4EF" Association="Self.FK__Mantenimi__ID_Se__4222D4EF">
+      <End Role="Servicios" EntitySet="Servicios" />
+      <End Role="Mantenimientos" EntitySet="Mantenimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mantenimi__ID_Ve__412EB0B6" Association="Self.FK__Mantenimi__ID_Ve__412EB0B6">
+      <End Role="Vehiculos" EntitySet="Vehiculos" />
+      <End Role="Mantenimientos" EntitySet="Mantenimientos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

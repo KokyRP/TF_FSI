@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelEFStoreContainer" CdmEntityContainer="TallerMecanicoEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ModelEF.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mantenimiento_Repuesto">
+      <EntityTypeMapping TypeName="ModelEF.Mantenimiento_Repuesto">
+        <MappingFragment StoreEntitySet="Mantenimiento_Repuesto">
+          <ScalarProperty Name="ID_Mantenimiento" ColumnName="ID_Mantenimiento" />
+          <ScalarProperty Name="ID_Repuesto" ColumnName="ID_Repuesto" />
+          <ScalarProperty Name="Cantidad_Usada" ColumnName="Cantidad_Usada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mantenimientos">
+      <EntityTypeMapping TypeName="ModelEF.Mantenimientos">
+        <MappingFragment StoreEntitySet="Mantenimientos">
+          <ScalarProperty Name="ID_Mantenimiento" ColumnName="ID_Mantenimiento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ID_Mecanico" ColumnName="ID_Mecanico" />
+          <ScalarProperty Name="ID_Vehiculo" ColumnName="ID_Vehiculo" />
+          <ScalarProperty Name="ID_Servicio" ColumnName="ID_Servicio" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mecanicos">
+      <EntityTypeMapping TypeName="ModelEF.Mecanicos">
+        <MappingFragment StoreEntitySet="Mecanicos">
+          <ScalarProperty Name="ID_Mecanico" ColumnName="ID_Mecanico" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repuestos">
+      <EntityTypeMapping TypeName="ModelEF.Repuestos">
+        <MappingFragment StoreEntitySet="Repuestos">
+          <ScalarProperty Name="ID_Repuesto" ColumnName="ID_Repuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad_Inventario" ColumnName="Cantidad_Inventario" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicios">
+      <EntityTypeMapping TypeName="ModelEF.Servicios">
+        <MappingFragment StoreEntitySet="Servicios">
+          <ScalarProperty Name="ID_Servicio" ColumnName="ID_Servicio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculos">
+      <EntityTypeMapping TypeName="ModelEF.Vehiculos">
+        <MappingFragment StoreEntitySet="Vehiculos">
+          <ScalarProperty Name="ID_Vehiculo" ColumnName="ID_Vehiculo" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
