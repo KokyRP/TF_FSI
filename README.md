@@ -29,15 +29,6 @@ El sistema permite gestionar de forma integral los procesos de atención y opera
 
 ## Enfoque en seguridad
 
-- Validación de datos de entrada  
-- Prevención de inyección SQL  
+- Validación de datos de entrada
 - Manejo de excepciones  
 - Control de integridad de la información  
-
----
-
-## Ejecución
-
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/KokyRP/TF_FSI.git
